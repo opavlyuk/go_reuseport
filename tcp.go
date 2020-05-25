@@ -117,7 +117,7 @@ func NewReusablePortListener(proto, addr string) (l net.Listener, err error) {
 		return nil, err
 	}
 
-	if err = syscall.SetsockoptInt(fd, syscall.SOL_SOCKET, 0x0200, 1); err != nil {
+	if err = syscall.SetsockoptInt(fd, syscall.SOL_SOCKET, reusePort, 1); err != nil {
 		syscall.Close(fd)
 		return nil, err
 	}
