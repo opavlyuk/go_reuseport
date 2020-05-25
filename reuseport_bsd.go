@@ -13,7 +13,7 @@ import (
 	"syscall"
 )
 
-var reusePort = syscall.SO_REUSEPORT
+var reusePort = 0x00010000
 
 func maxListenerBacklog() int {
 	var (
